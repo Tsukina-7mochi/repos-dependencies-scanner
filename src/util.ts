@@ -18,11 +18,6 @@ const classifyBy = function <T, S>(
   return map;
 };
 
-// deno-lint-ignore no-control-regex
-const ansiControlSeqRegExp = /\x1b\[\d+(;\d+)?m/g;
-const printableLength = function (text: string) {
-  return text.replace(ansiControlSeqRegExp, '').length;
-};
 const padToLength = function (text: string, length: number) {
   return (text + ' '.repeat(length)).slice(0, length);
 };
@@ -34,7 +29,7 @@ const renderTable = function (cells: string[][]): string {
   const tableCells = cells
     .map((row) => new Array(columns).fill('').map((v, i) => row[i] ?? v));
   const cellLengths = tableCells.map((row) =>
-    row.map((cel) => printableLength(cel))
+    row.map((cel) => cel.length)
   );
   const maxCellWidths = new Array(columns)
     .fill(0)
