@@ -5,7 +5,7 @@ import * as io from 'io';
 import {
   checkDepsImportMap,
   checkDepsRecord,
-  checkURLsInText,
+  checkURLStringsEsInText,
   createDenoURLResolver,
   createNpmResolver,
   VersionCheckSummaryItem,
@@ -117,7 +117,7 @@ for (const repoName in fileIndex) {
       } else if (fileConfig.type === 'es-url') {
         summary = [
           ...summary,
-          ...(await checkURLsInText(content, resolver)),
+          ...(await checkURLStringsEsInText(content, resolver)),
         ];
       }
     }
@@ -136,8 +136,6 @@ const repoNumNeedFix = summaries
 console.log(`Number of repos needs fix: \x1b[1m${repoNumNeedFix}\x1b[0m`);
 
 for (const { repoName, summary } of summaries) {
-  console.log(`\x1b[1m${repoName}\x1b[0m`);
-
   const classified = classifyBy(summary, (item) => item.checkResult);
   const latestDeps = classified.get('latest') ?? [];
   const outdatedDeps = classified.get('outdated') ?? [];

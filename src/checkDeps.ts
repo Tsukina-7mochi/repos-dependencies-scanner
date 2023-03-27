@@ -246,7 +246,7 @@ const checkDepsImportMap = async function (
   return summary;
 };
 
-const checkURLsInText = async function (
+const checkURLStringsEsInText = async function (
   text: string,
   resolver: Resolver,
 ): Promise<VersionCheckSummaryItem[]> {
@@ -263,7 +263,7 @@ const checkURLsInText = async function (
   ];
 
   for (const match of matches) {
-    const url = match[0];
+    const url = match[0].slice(1, -1);
     const [curVer, latestVer] = await resolver(url);
 
     summary.push({
@@ -280,7 +280,7 @@ const checkURLsInText = async function (
 export {
   checkDepsImportMap,
   checkDepsRecord,
-  checkURLsInText,
+  checkURLStringsEsInText,
   createDenoURLResolver,
   createNpmResolver,
 };
