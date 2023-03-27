@@ -148,6 +148,8 @@ for (const { repoName, summary } of summaries) {
     continue;
   }
 
+  console.log(`\x1b[1m${repoName}\x1b[0m`);
+
   console.log(
     `\x1b[30;107mTotal\x1b[0m ${summary.length} ` +
       `\x1b[30;42mLatest\x1b[0m ${latestDeps.length} ` +
