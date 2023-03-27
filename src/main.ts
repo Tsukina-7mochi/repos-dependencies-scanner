@@ -160,7 +160,7 @@ for (const { repoName, summary } of summaries) {
   );
 
   const table = [
-    ['\x1b[30;41m\x1b[0m', 'Package', 'Current version', 'Latest version'],
+    ['\x1b[30;41m\x1b[0m', 'Package', 'Current', 'Latest'],
     ...outdatedDeps.map((dep) => [
       '\x1b[30;41m Outdated \x1b[0m',
       dep.packageName,
