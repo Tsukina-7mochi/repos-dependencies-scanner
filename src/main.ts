@@ -53,7 +53,7 @@ for (const repoName in fileIndex) {
   const files = fileIndex[repoName];
   const fileNames = files.map((file) => file.name);
 
-  console.log(`Repository: ${repoName}`);
+  console.log(`\x1b[1mRepository: ${repoName}\x1b[0m`);
   let summary: VersionCheckSummaryItem[] = [];
 
   for (const file of files) {
