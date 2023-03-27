@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "cliffy": "https://deno.land/x/cliffy@v0.25.7/mod.ts",
+    "io": "https://deno.land/std@0.180.0/io/mod.ts",
+    "semver": "https://deno.land/x/semver@v1.4.1/mod.ts"
+  }
+}

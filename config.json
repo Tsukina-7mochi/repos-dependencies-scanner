@@ -1,0 +1,22 @@
+{
+  "token": "credentials/token.txt",
+  "username": "Tsukina-7mochi",
+  "index_file": "index.json",
+  "files": {
+    "package.json": {
+      "exists": [],
+      "type": "package.json",
+      "resolve": "npm"
+    },
+    "import_map.json": {
+      "exists": ["deno.json"],
+      "type": "importmap",
+      "resolve": "deno"
+    },
+    "deps.ts": {
+      "exists": ["deno.json"],
+      "type": "es-url",
+      "resolve": "deno"
+    }
+  }
+}
