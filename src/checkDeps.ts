@@ -126,7 +126,7 @@ const resolveGitHub = async function (
     owner: path[0],
     repo: path[1],
   });
-  const latestVersion = semver.clean(latestReleaseRes.data.name ?? '');
+  const latestVersion = semver.clean(latestReleaseRes.data.tag_name ?? '');
   gitHubDepsCache.set(pkgName, latestVersion);
 
   return [pkgVersion, latestVersion];
